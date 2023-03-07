@@ -4,7 +4,6 @@
     height="30px"
     fill="#0069B4"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 902.86 902.86"
     stroke="#0069B4"
     transform="matrix(-1, 0, 0, 1, 0, 0)"
