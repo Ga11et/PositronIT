@@ -13,8 +13,8 @@ import Path from './views/path/Path.vue'
 import Similars from './views/similars/Similars.vue'
 
 export default {
-  name: 'App',
   components: { Header, Path, Basket, Similars },
+  name: 'App',
 }
 </script>
 <style lang="css"></style>

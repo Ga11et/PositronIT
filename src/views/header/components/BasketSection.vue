@@ -11,10 +11,12 @@
   </div>
 </template>
 <script>
+import { computed, toRefs } from 'vue'
 import { BasketServises } from '../../../servises/basketServises'
 import BasketSVG from './basketSVG.vue'
 
 export default {
+  components: { BasketSVG },
   name: 'BasketSection',
   props: {
     count: {
@@ -26,12 +28,12 @@ export default {
       required: true,
     },
   },
-  computed: {
-    formattedPrice() {
-      return BasketServises.formatPrice(this.$props.price)
-    },
+  setup(props) {
+    const { price } = toRefs(props)
+    return {
+      formattedPrice: computed(() => BasketServises.formatPrice(price.value)),
+    }
   },
-  components: { BasketSVG },
 }
 </script>
 <style lang="css">

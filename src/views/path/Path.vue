@@ -10,6 +10,7 @@
 <script>
 import ArrowSVG from './components/arrowSVG.vue'
 export default {
+  components: { ArrowSVG },
   name: 'Path',
   props: {
     path: {
@@ -17,7 +18,6 @@ export default {
       required: true,
     },
   },
-  components: { ArrowSVG },
 }
 </script>
 <style lang="css">

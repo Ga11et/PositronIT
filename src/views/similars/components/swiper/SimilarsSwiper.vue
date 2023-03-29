@@ -22,8 +22,10 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import { computed, toRefs } from 'vue'
 
 export default {
+  components: { SwipeItem, Swiper, SwiperSlide },
   name: 'SimilarsSwiper',
   props: {
     content: {
@@ -31,18 +33,8 @@ export default {
       required: true,
     },
   },
-  computed: {
-    multipliedProducts() {
-      return [
-        ...this.$props.content,
-        ...this.$props.content,
-        ...this.$props.content,
-        ...this.$props.content,
-      ]
-    },
-  },
-  components: { SwipeItem, Swiper, SwiperSlide },
-  setup() {
+  setup(props) {
+    const { content } = toRefs(props)
     const onSwiper = (swiper) => {
       console.log(swiper)
     }
@@ -53,6 +45,12 @@ export default {
       onSwiper,
       onSlideChange,
       modules: [Pagination, Navigation],
+      multipliedProducts: computed(() => [
+        ...content.value,
+        ...content.value,
+        ...content.value,
+        ...content.value,
+      ]),
     }
   },
 }

@@ -15,6 +15,8 @@
   </aside>
 </template>
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import BasketPriceButton from './components/BasketPriceButton.vue'
 import BasketPriceCount from './components/BasketPriceCount.vue'
 import BasketPriceDevider from './components/BasketPriceDevider.vue'
@@ -22,23 +24,6 @@ import BasketPriceInstall from './components/BasketPriceInstall.vue'
 import BasketPriceValue from './components/BasketPriceValue.vue'
 import BasketPriceValueFinal from './components/BasketPriceValueFinal.vue'
 export default {
-  name: 'BasketPrice',
-  computed: {
-    price() {
-      return this.$store.getters.getPrice
-    },
-    count() {
-      return this.$store.getters.getCount
-    },
-    install() {
-      return this.$store.getters.getShouldInstall
-    },
-  },
-  methods: {
-    sumbitHandler() {
-      this.$store.dispatch('buyProducts')
-    },
-  },
   components: {
     BasketPriceDevider,
     BasketPriceValue,
@@ -46,6 +31,16 @@ export default {
     BasketPriceInstall,
     BasketPriceValueFinal,
     BasketPriceButton,
+  },
+  name: 'BasketPrice',
+  setup(props) {
+    const store = useStore()
+    return {
+      price: computed(() => store.getters.getPrice),
+      count: computed(() => store.getters.getCount),
+      install: computed(() => store.getters.getShouldInstall),
+      sumbitHandler: () => store.dispatch('buyProducts'),
+    }
   },
 }
 </script>

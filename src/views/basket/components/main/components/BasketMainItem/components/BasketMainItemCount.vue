@@ -16,6 +16,9 @@
   </div>
 </template>
 <script>
+import { toRefs } from 'vue'
+import { useStore } from 'vuex'
+
 export default {
   name: 'BasletMainItemCount',
   props: {
@@ -24,19 +27,23 @@ export default {
       required: true,
     },
   },
-  methods: {
-    increaseHandler() {
-      this.$store.dispatch('changeBasketProductCount', {
-        ...this.$props.content,
-        count: this.$props.content.count + 1,
-      })
-    },
-    decreaseHandler() {
-      this.$store.dispatch('changeBasketProductCount', {
-        ...this.$props.content,
-        count: this.$props.content.count - 1,
-      })
-    },
+  setup(props) {
+    const store = useStore()
+    const { content } = toRefs(props)
+    return {
+      increaseHandler: () => {
+        store.dispatch('changeBasketProductCount', {
+          ...content.value,
+          count: content.value.count + 1,
+        })
+      },
+      decreaseHandler: () => {
+        store.dispatch('changeBasketProductCount', {
+          ...content.value,
+          count: content.value.count - 1,
+        })
+      },
+    }
   },
 }
 </script>

@@ -5,6 +5,7 @@
   </div>
 </template>
 <script>
+import { computed, toRefs } from 'vue'
 import { BasketServises } from '../../../../../servises/basketServises'
 
 export default {
@@ -15,10 +16,11 @@ export default {
       required: true,
     },
   },
-  computed: {
-    formattedPrice() {
-      return BasketServises.formatPrice(this.$props.price)
-    },
+  setup(props) {
+    const { price } = toRefs(props)
+    return {
+      formattedPrice: computed(() => BasketServises.formatPrice(price.value)),
+    }
   },
 }
 </script>

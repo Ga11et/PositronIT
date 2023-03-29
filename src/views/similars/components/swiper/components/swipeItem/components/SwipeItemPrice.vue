@@ -5,6 +5,7 @@
   </div>
 </template>
 <script>
+import { computed, toRefs } from 'vue'
 import { BasketServises } from '../../../../../../../servises/basketServises'
 
 export default {
@@ -15,13 +16,14 @@ export default {
       required: true,
     },
   },
-  computed: {
-    formattedPriceRubles() {
-      return BasketServises.formatPrice(this.$props.content.price)
-    },
-    formattedPriseDollars() {
-      return Math.round((this.$props.content.price / 80.24) * 100) / 100 + '€'
-    },
+  setup(props) {
+    const { content } = toRefs(props)
+    return {
+      formattedPriceRubles: computed(() => BasketServises.formatPrice(content.value.price)),
+      formattedPriseDollars: computed(
+        () => Math.round((content.value.price / 80.24) * 100) / 100 + '€',
+      ),
+    }
   },
 }
 </script>

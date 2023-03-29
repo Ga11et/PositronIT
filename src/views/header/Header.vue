@@ -9,26 +9,21 @@
   </header>
 </template>
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import BasketSection from './components/BasketSection.vue'
 
 export default {
-  name: 'Header',
   components: { BasketSection },
-  computed: {
-    price() {
-      return this.$store.getters.getPrice
-    },
-    count() {
-      return this.$store.getters.getCount
-    },
-    loading() {
-      return this.$store.getters.getLoading
-    },
-  },
-  methods: {
-    addHandler() {
-      this.$store.dispatch('addBasketProduct')
-    },
+  name: 'Header',
+  setup(props) {
+    const store = useStore()
+    return {
+      price: computed(() => store.getters.getPrice),
+      count: computed(() => store.getters.getCount),
+      loading: computed(() => store.getters.getLoading),
+      addHandler: () => store.dispatch('addBasketProduct'),
+    }
   },
 }
 </script>

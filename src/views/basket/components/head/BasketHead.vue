@@ -8,20 +8,17 @@
   </div>
 </template>
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 export default {
   name: 'BasketHead',
-  computed: {
-    count() {
-      return this.$store.getters.getCount
-    },
-    loading() {
-      return this.$store.getters.getLoading
-    },
-  },
-  methods: {
-    deleteHandler() {
-      this.$store.dispatch('deleteAllBasket')
-    },
+  setup() {
+    const store = useStore()
+    return {
+      count: computed(() => store.getters.getCount),
+      loading: computed(() => store.getters.getLoading),
+      deleteHandler: () => store.dispatch('deleteAllBasket'),
+    }
   },
 }
 </script>

@@ -14,8 +14,8 @@ import BasketMain from './components/main/BasketMain.vue'
 import BasketPrice from './components/price/BasketPrice.vue'
 
 export default {
-  name: 'Basket',
   components: { BasketHead, BasketMain, BasketPrice, BasketInstall },
+  name: 'Basket',
 }
 </script>
 <style lang="css">

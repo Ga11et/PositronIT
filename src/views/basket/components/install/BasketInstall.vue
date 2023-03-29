@@ -19,23 +19,20 @@
   >
 </template>
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import InstallSVG from './components/InstallSVG.vue'
 export default {
-  name: 'BasketInstall',
-  computed: {
-    install() {
-      return this.$store.getters.getShouldInstall
-    },
-    loading() {
-      return this.$store.getters.getLoading
-    },
-  },
-  methods: {
-    installHandler() {
-      this.$store.dispatch('toggleShouldInstall')
-    },
-  },
   components: { InstallSVG },
+  name: 'BasketInstall',
+  setup(props) {
+    const store = useStore()
+    return {
+      install: computed(() => store.getters.getShouldInstall),
+      loading: computed(() => store.getters.getLoading),
+      installHandler: () => store.dispatch('toggleShouldInstall'),
+    }
+  },
 }
 </script>
 <style lang="css">

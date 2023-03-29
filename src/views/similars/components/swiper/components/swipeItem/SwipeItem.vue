@@ -11,6 +11,7 @@ import SwipeItemDescription from './components/SwipeItemDescription.vue'
 import SwipeItemPrice from './components/SwipeItemPrice.vue'
 
 export default {
+  components: { SwipeItemDescription, SwipeItemPrice },
   name: 'SwipeItem',
   props: {
     content: {
@@ -18,12 +19,11 @@ export default {
       required: true,
     },
   },
-  methods: {
-    moreHandler() {
-      console.log('Вы кликнули на кропку "Подробнее"')
-    },
+  setup(props) {
+    return {
+      moreHandler: () => console.log('Вы кликнули на кропку "Подробнее"'),
+    }
   },
-  components: { SwipeItemDescription, SwipeItemPrice },
 }
 </script>
 <style lang="css">

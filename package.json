@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Ga11et/PositronIT.git",
+  "homepage": "https://ga11et.github.io/PositronIT/",
   "author": "Fyodor <sivkov1998@yandex.ru>",
   "license": "MIT",
   "scripts": {
@@ -16,5 +17,8 @@
     "vue": "^3.2.47",
     "vuex": "^4.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "vite-svg-loader": "^4.0.0"
+  }
 }
