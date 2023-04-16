@@ -22,8 +22,8 @@ import BasketMainItemDescription from './components/BasketMainItemDescription.vu
 import BasketMainItemCount from './components/BasketMainItemCount.vue'
 import DeleteSVG from './components/DeleteSVG.vue'
 import { BasketServises } from '../../../../../../servises/basketServises'
-import { useStore } from 'vuex'
 import { computed, toRefs } from 'vue'
+import { useBasketStore } from '../../../../../../store/basket'
 export default {
   components: { BasketMainItemCount, BasketMainItemDescription, DeleteSVG },
   name: 'BasketMainItem',
@@ -34,14 +34,14 @@ export default {
     },
   },
   setup(props) {
-    const store = useStore()
+    const store = useBasketStore()
     const { content } = toRefs(props)
     return {
-      loading: computed(() => store.getters.getLoading),
+      loading: computed(() => store.getLoading),
       formattedPrice: computed(() =>
         BasketServises.formatPrice(content.value.price * content.value.count),
       ),
-      deleteHandler: () => store.dispatch('deleteBasketProduct', content.value.id),
+      deleteHandler: () => store.deleteBasketProduct(content.value.id),
     }
   },
 }

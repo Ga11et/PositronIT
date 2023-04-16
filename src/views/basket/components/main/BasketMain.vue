@@ -5,16 +5,16 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useBasketStore } from '../../../../store/basket'
 import BasketMainItem from './components/BasketMainItem/BasketMainItem.vue'
 
 export default {
   components: { BasketMainItem },
   name: 'BasketMain',
   setup(props) {
-    const store = useStore()
+    const store = useBasketStore()
     return {
-      products: computed(() => store.getters.getBasketProducts),
+      products: computed(() => store.getBasketProducts),
     }
   },
 }

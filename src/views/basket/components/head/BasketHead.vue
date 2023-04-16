@@ -9,15 +9,15 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useBasketStore } from '../../../../store/basket'
 export default {
   name: 'BasketHead',
   setup() {
-    const store = useStore()
+    const store = useBasketStore()
     return {
-      count: computed(() => store.getters.getCount),
-      loading: computed(() => store.getters.getLoading),
-      deleteHandler: () => store.dispatch('deleteAllBasket'),
+      count: computed(() => store.getCount),
+      loading: computed(() => store.getLoading),
+      deleteHandler: () => store.deleteAllBasket(),
     }
   },
 }

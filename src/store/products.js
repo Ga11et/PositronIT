@@ -1,10 +1,11 @@
-import G2H from '../assets/g2h.png'
-import BXC from '../assets/bxc.png'
-import GHN from '../assets/ghn.png'
-import TDA from '../assets/tda.png'
+import { defineStore } from 'pinia';
+import G2H from './assets/g2h.png'
+import BXC from './assets/bxc.png'
+import GHN from './assets/ghn.png'
+import TDA from './assets/tda.png'
 
-export const ProductsSlice = {
-  state: {
+export const useProductsStore = defineStore('products', {
+  state: () => ({
     products: [
       {
         id: '1',
@@ -47,13 +48,11 @@ export const ProductsSlice = {
         image: TDA,
       },
     ],
-  },
+  }),
   getters: {
     getAllProducts(state) {
       return state.products
     },
   },
-  mutations: {},
-  actions: {},
-  modules: {},
-}
+  actions: {}
+})

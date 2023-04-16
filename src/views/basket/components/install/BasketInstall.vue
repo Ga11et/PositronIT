@@ -20,17 +20,17 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useBasketStore } from '../../../../store/basket'
 import InstallSVG from './components/InstallSVG.vue'
 export default {
   components: { InstallSVG },
   name: 'BasketInstall',
   setup(props) {
-    const store = useStore()
+    const store = useBasketStore()
     return {
-      install: computed(() => store.getters.getShouldInstall),
-      loading: computed(() => store.getters.getLoading),
-      installHandler: () => store.dispatch('toggleShouldInstall'),
+      install: computed(() => store.getShouldInstall),
+      loading: computed(() => store.getLoading),
+      installHandler: () => store.toggleShouldInstall(),
     }
   },
 }

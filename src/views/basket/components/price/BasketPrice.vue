@@ -16,7 +16,7 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useBasketStore } from '../../../../store/basket'
 import BasketPriceButton from './components/BasketPriceButton.vue'
 import BasketPriceCount from './components/BasketPriceCount.vue'
 import BasketPriceDevider from './components/BasketPriceDevider.vue'
@@ -34,12 +34,12 @@ export default {
   },
   name: 'BasketPrice',
   setup(props) {
-    const store = useStore()
+    const store = useBasketStore()
     return {
-      price: computed(() => store.getters.getPrice),
-      count: computed(() => store.getters.getCount),
-      install: computed(() => store.getters.getShouldInstall),
-      sumbitHandler: () => store.dispatch('buyProducts'),
+      price: computed(() => store.getPrice),
+      count: computed(() => store.getCount),
+      install: computed(() => store.getShouldInstall),
+      sumbitHandler: () => store.buyProducts(),
     }
   },
 }

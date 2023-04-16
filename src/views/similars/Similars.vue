@@ -6,16 +6,16 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useProductsStore } from '../../store/products'
 import SimilarsSwiper from './components/swiper/SimilarsSwiper.vue'
 
 export default {
   components: { SimilarsSwiper },
   name: 'Similars',
   setup(props) {
-    const store = useStore()
+    const store = useProductsStore()
     return {
-      products: computed(() => store.getters.getAllProducts),
+      products: computed(() => store.getAllProducts),
     }
   },
 }

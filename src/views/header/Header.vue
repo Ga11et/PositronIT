@@ -10,19 +10,19 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useBasketStore } from '../../store/basket'
 import BasketSection from './components/BasketSection.vue'
 
 export default {
   components: { BasketSection },
   name: 'Header',
   setup(props) {
-    const store = useStore()
+    const store = useBasketStore()
     return {
-      price: computed(() => store.getters.getPrice),
-      count: computed(() => store.getters.getCount),
-      loading: computed(() => store.getters.getLoading),
-      addHandler: () => store.dispatch('addBasketProduct'),
+      price: computed(() => store.getPrice),
+      count: computed(() => store.getCount),
+      loading: computed(() => store.getLoading),
+      addHandler: () => store.addBasketProduct(),
     }
   },
 }
