@@ -16,7 +16,7 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useBasketStore } from '../../../../store/basket'
+import { useBasketStore } from '@/store/basket'
 import BasketPriceButton from './components/BasketPriceButton.vue'
 import BasketPriceCount from './components/BasketPriceCount.vue'
 import BasketPriceDevider from './components/BasketPriceDevider.vue'

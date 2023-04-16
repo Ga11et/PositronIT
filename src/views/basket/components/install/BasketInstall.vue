@@ -20,7 +20,7 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useBasketStore } from '../../../../store/basket'
+import { useBasketStore } from '@/store/basket'
 import InstallSVG from './components/InstallSVG.vue'
 export default {
   components: { InstallSVG },

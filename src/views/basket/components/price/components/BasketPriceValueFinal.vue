@@ -6,7 +6,7 @@
 </template>
 <script>
 import { computed, toRefs } from 'vue'
-import { BasketServises } from '../../../../../servises/basketServises'
+import { BasketServises } from '@/servises/basketServises'
 
 export default {
   name: 'BasketPriceValue',

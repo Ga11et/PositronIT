@@ -6,7 +6,7 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useProductsStore } from '../../store/products'
+import { useProductsStore } from '@/store/products'
 import SimilarsSwiper from './components/swiper/SimilarsSwiper.vue'
 
 export default {

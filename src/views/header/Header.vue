@@ -10,7 +10,7 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useBasketStore } from '../../store/basket'
+import { useBasketStore } from '@/store/basket'
 import BasketSection from './components/BasketSection.vue'
 
 export default {

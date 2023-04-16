@@ -21,9 +21,9 @@
 import BasketMainItemDescription from './components/BasketMainItemDescription.vue'
 import BasketMainItemCount from './components/BasketMainItemCount.vue'
 import DeleteSVG from './components/DeleteSVG.vue'
-import { BasketServises } from '../../../../../../servises/basketServises'
+import { BasketServises } from '@/servises/basketServises'
 import { computed, toRefs } from 'vue'
-import { useBasketStore } from '../../../../../../store/basket'
+import { useBasketStore } from '@/store/basket'
 export default {
   components: { BasketMainItemCount, BasketMainItemDescription, DeleteSVG },
   name: 'BasketMainItem',

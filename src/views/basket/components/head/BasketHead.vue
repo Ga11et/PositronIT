@@ -9,7 +9,7 @@
 </template>
 <script>
 import { computed } from 'vue'
-import { useBasketStore } from '../../../../store/basket'
+import { useBasketStore } from '@/store/basket'
 export default {
   name: 'BasketHead',
   setup() {
